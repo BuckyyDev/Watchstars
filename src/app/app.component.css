@@ -1,0 +1,80 @@
+/* Style the Splide container */
+.splide {
+  max-width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 0; /* Remove padding from here */
+}
+
+/* Style the track */
+.splide__track {
+  padding: 10px 0;
+  overflow: hidden;
+}
+
+/* Style the list of slides */
+.splide__list {
+  display: flex;
+  gap: 5px;
+  margin: 0;
+  width: 100%; /* Ensure this takes up full width of the container */
+  box-sizing: border-box; /* Prevent overflow */
+}
+
+/* Style each slide */
+.splide__slide {
+  position: relative;
+  width: 100%; /* Ensure slide takes full width */
+  max-width: calc(100% / 7 - 5px); /* Adjust width to fit within container*/
+  border-radius: 0px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.splide__slide:hover {
+  transform: scale(1.025);
+}
+
+/* Add thumbnail images */
+.splide__slide img {
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+/* Style the pagination */
+.splide__pagination {
+  bottom: -15px;
+}
+
+.splide__pagination__page {
+  background: #fff;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.splide__pagination__page.is-active {
+  background: #00bcd4;
+  opacity: 1;
+}
+
+/* Style arrows */
+.splide__arrow {
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+
+.splide__arrow:hover {
+  background: #00bcd4;
+}
