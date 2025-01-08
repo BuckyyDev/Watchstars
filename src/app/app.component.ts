@@ -18,12 +18,12 @@ export class AppComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformId)) {
-      console.log('Initializing carousel...');
+      console.log('Initializing carousels...');
       setTimeout(() => {
-        this.initCarousel('.splide-row-1', 6);
-        this.initCarousel('.splide-row-2', 11);
-        this.initCarousel('.splide-row-3', 11);
-      }, 0);  // Delay slightly to ensure the DOM is ready
+        this.initCarousel('#splide-row-1', 7); // First carousel
+        this.initCarousel('#splide-row-2', 12); // Second carousel
+        this.initCarousel('#splide-row-3', 11); // Third carousel
+      }, 0);
     }
   }
 
@@ -36,8 +36,9 @@ export class AppComponent implements AfterViewInit {
         perMove: 1,
         trimSpace: true,
         autoplay: false,
+        autoWidth: false,
         pagination: false,
-        wheel: false,
+        wheel: true,
         direction: 'ltr', // Ensure left to right movement
         padding: { left: '3.4%', right: '3.4%' },
       }).mount();

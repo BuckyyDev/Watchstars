@@ -15,7 +15,7 @@
 /* Style the list of slides */
 .splide__list {
   display: flex;
-  gap: 5px;
+  gap: 10px;
   margin: 0;
   width: 100%; /* Ensure this takes up full width of the container */
   box-sizing: border-box; /* Prevent overflow */
@@ -25,11 +25,11 @@
 .splide__slide {
   position: relative;
   width: 100%; /* Ensure slide takes full width */
-  max-width: calc(100% / 7 - 5px); /* Adjust width to fit within container*/
   border-radius: 0px;
   overflow: hidden;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center !important;
 }
 
 .splide__slide:hover {
@@ -40,6 +40,7 @@
 .splide__slide img {
   object-fit: cover;
   border-radius: 5px;
+  margin: auto;
 }
 
 /* Style the pagination */
