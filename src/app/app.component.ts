@@ -2,11 +2,12 @@ import {AfterViewInit, Component, Inject, PLATFORM_ID} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import Splide from '@splidejs/splide';
 import {isPlatformBrowser} from "@angular/common";
+import {NavbarComponent} from "./navbar/navbar.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, NavbarComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -36,6 +37,7 @@ export class AppComponent implements AfterViewInit {
         trimSpace: true,
         autoplay: false,
         pagination: false,
+        wheel: false,
         direction: 'ltr', // Ensure left to right movement
         padding: { left: '3.4%', right: '3.4%' },
       }).mount();
