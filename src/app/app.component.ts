@@ -38,7 +38,7 @@ export class AppComponent implements AfterViewInit {
         autoplay: false,
         autoWidth: false,
         pagination: false,
-        wheel: true,
+        wheel: false,
         direction: 'ltr', // Ensure left to right movement
         padding: { left: '3.4%', right: '3.4%' },
       }).mount();
