@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {MovieInformation} from "../interfaces/movieinformation";
+import { MoviesService } from '../services/movies.service';
 
 @Component({
   selector: 'app-movies',
@@ -8,6 +9,9 @@ import {MovieInformation} from "../interfaces/movieinformation";
   styleUrl: './movies.component.css'
 })
 export class MoviesComponent {
+
+  constructor(private movieService:MoviesService){}
+
   movieInformation: MovieInformation = {
 
     title: 'Inception',
@@ -16,4 +20,9 @@ export class MoviesComponent {
     overview: 'Cobb, a skilled thief who commits corporate espionage by infiltrating the subconscious of his targets is offered a chance to regain his old life as payment for a task considered to be impossible: \\"inception\\", the implantation of another person\'s idea into a target\'s subconscious.',
 
   }
+
+  ngOnInit() {
+    this.movieService.getMovies().subscribe();
+  }
+
 }
