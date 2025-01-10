@@ -1,9 +1,13 @@
 import { Routes } from '@angular/router';
 import { MoviesComponent } from './movies/movies.component';
 import { HomeComponent } from './home/home.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SetupGuard } from './guards/setup.guard';
+import { SetupComponent } from './setup/setup.component';
 
 export const routes: Routes = [
-    { path: 'movies', component: MoviesComponent },
-    { path: '', component: HomeComponent }, // Home component for the root route
-    { path: '**', redirectTo: '' } // Wildcard to handle unknown routes
+    { path: 'movies', component: MoviesComponent, canActivate: [SetupGuard]  },
+    { path: '', component: HomeComponent, canActivate: [SetupGuard] },
+    { path: 'dashboard', component: DashboardComponent, canActivate: [SetupGuard]  },
+    { path: 'setup', component: SetupComponent }
 ];
