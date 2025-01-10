@@ -1,17 +1,38 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import Splide from '@splidejs/splide';
 import { NavbarComponent } from "./navbar/navbar.component";
+import { filter } from 'rxjs/operators';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NavbarComponent],
+  imports: [RouterOutlet, NavbarComponent, CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+  showNavbar: boolean = true;
   title = 'watchstars';
+
+  constructor(private router: Router) {}
+  
+  ngOnInit(): void {
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe((event: NavigationEnd) => {
+      const currentRoute = event.urlAfterRedirects;
+      // Hide the navbar on certain pages
+      if (currentRoute === '/setup' || currentRoute === '/watch') {
+        this.showNavbar = false;
+      } else if (currentRoute === '/' || currentRoute === '') {
+        this.showNavbar = true;
+      } else {
+        this.showNavbar = true;
+      }
+    });
+  }
 
   ngAfterViewInit(): void {
       console.log('Initializing carousels...');

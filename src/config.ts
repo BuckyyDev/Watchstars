@@ -1,4 +1,4 @@
 export const config = {
-    freshInstall: true,
+    freshInstall: false,
     apiUrl: "http://localhost:8000",
 };
