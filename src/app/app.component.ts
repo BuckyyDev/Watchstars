@@ -39,7 +39,7 @@ export class AppComponent {
       setTimeout(() => {
         this.initCarousel('#splide-row-1', 7); // First carousel
         this.initCarousel('#splide-row-2', 12); // Second carousel
-        this.initCarousel('#splide-row-3', 11); // Third carousel
+        this.initCarousel('#splide-row-3', 12); // Third carousel
       }, 0);
   }
 

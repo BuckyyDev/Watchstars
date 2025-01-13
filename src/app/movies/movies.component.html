@@ -1,9 +1,11 @@
 <div class="grid grid-cols-11 gap-4 px-[3.4%]">
-  <div class="movie-item text-center">
-    <img [src]="movieInformation.poster_url"/>
+  <div *ngFor="let movie of movies" class="watchable-item text-center">
+    <a [routerLink]="['/item']" [queryParams]="{ id: movie.title_id }">
+    <img [src]="'https://image.tmdb.org/t/p/w500/' + movie.poster_path" alt="{{ movie.title }} poster"/>
     <div class="text-center mt-1 w-auto">
-      <h1>{{ movieInformation.title }}</h1>
-      <p class="font-thin">{{movieInformation.year}}</p>
+      <h1>{{ movie.title }}</h1>
+      <p class="font-thin">{{ movie.release_year }}</p>
     </div>
+    </a>
   </div>
 </div>

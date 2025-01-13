@@ -19,4 +19,20 @@ export class SetupComponent {
       this.router.navigate(['/']);
     }
   }
+
+  steps = ['Welcome', 'Setup Website', 'Final Step']; // Array of steps
+  currentStep = 0;
+
+  goNext() {
+    if (this.currentStep < this.steps.length - 1) {
+      this.currentStep++;
+    }
+  }
+
+  goBack() {
+    if (this.currentStep > 0) {
+      this.currentStep--;
+    }
+  }
+
 }

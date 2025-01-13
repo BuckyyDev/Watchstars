@@ -8,3 +8,13 @@ body {
   background: #121215;
   color: #fff;
 }
+.watchable-item img {
+  border-radius: 5px;
+  margin: auto;
+}
+.watchable-item {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.watchable-item:hover {
+  transform: scale(1.025);
+}

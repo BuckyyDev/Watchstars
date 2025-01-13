@@ -1,30 +1,30 @@
 import { Component, OnInit } from '@angular/core';
-import { MoviesService } from '../services/movies.service';
+import { SeriesService } from '../services/series.service';
 import { CommonModule } from '@angular/common';
 import {RouterLink} from "@angular/router";
 
 @Component({
-  selector: 'app-movies',
+  selector: 'app-series',
   standalone: true,
   imports: [CommonModule, RouterLink],
-  templateUrl: './movies.component.html',
-  styleUrl: './movies.component.css'
+  templateUrl: './series.component.html',
+  styleUrl: './series.component.css'
 })
-export class MoviesComponent implements OnInit {
-  movies: any[] = [];
+export class SeriesComponent implements OnInit {
+  series: any[] = [];
   isLoading = true;
   error: string | null = null;
 
-  constructor(private moviesService: MoviesService) { }
+  constructor(private seriesService: SeriesService) { }
 
   ngOnInit(): void {
     this.fetchMovies();
   }
 
   fetchMovies(): void {
-    this.moviesService.getMovies().subscribe({
+    this.seriesService.getSeries().subscribe({
       next: (data) => {
-        this.movies = data;
+        this.series = data;
         this.isLoading = false;
       },
       error: (err) => {
@@ -34,5 +34,4 @@ export class MoviesComponent implements OnInit {
       }
     });
   }
-
 }

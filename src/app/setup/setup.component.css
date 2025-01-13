@@ -1,0 +1,5 @@
+.logo {
+    content: url(../../../public/logo.png);
+    width: 92px;
+    height: auto;
+}
