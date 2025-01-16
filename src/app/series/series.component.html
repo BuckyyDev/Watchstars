@@ -1,11 +1,11 @@
-<div class="grid grid-cols-11 gap-4 px-[3.4%]">
+<div class="grid grid-cols-11 gap-4">
     <div *ngFor="let tv of series" class="watchable-item text-center">
-      <a [routerLink]="['/item']" [queryParams]="{ id: tv.title_id }">
+      <button [routerLink]="['/item']" [queryParams]="{ id: tv.title_id }">
       <img [src]="'https://image.tmdb.org/t/p/w500/' + tv.poster_path" alt="{{ tv.title }} poster"/>
       <div class="text-center mt-1 w-auto">
         <h1>{{ tv.title }}</h1>
         <p class="font-thin">{{ tv.release_year }}</p>
       </div>
-      </a>
+      </button>
     </div>
   </div>

@@ -1,0 +1,9 @@
+.item-bg {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  position: absolute;
+  z-index: -10;
+  box-shadow: inset 0 0 1000px 1000px RGBA(0,0,0,0.75);
+  border-radius: 2rem;
+}

@@ -1,19 +1,21 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
-import {NgIf} from "@angular/common";
+import {NgForOf, NgIf} from "@angular/common";
 import {ItemService} from "../services/item.service";
 
 @Component({
   selector: 'app-item',
   standalone: true,
   imports: [
-    NgIf
+    NgIf,
+    NgForOf
   ],
   templateUrl: './item.component.html',
   styleUrl: './item.component.css'
 })
 export class ItemComponent implements OnInit {
+  title = "s";
   item: any;
   errorMessage: any;
 
@@ -24,7 +26,6 @@ export class ItemComponent implements OnInit {
 
 
   ngOnInit(): void {
-    // Retrieve the title_id from the query parameters
     this.route.queryParams.subscribe({
       next: (params) => {
         const titleId = params['id'];
@@ -33,7 +34,7 @@ export class ItemComponent implements OnInit {
           this.itemService.getItemDetails(Number(titleId)).subscribe({
             next: (data) => {
               this.item = data;
-              this.errorMessage = null; // Clear any previous error messages
+              this.errorMessage = null;
             },
             error: (error) => {
               if (error.status === 404) {

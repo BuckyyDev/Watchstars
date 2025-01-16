@@ -4,11 +4,12 @@ import Splide from '@splidejs/splide';
 import { NavbarComponent } from "./navbar/navbar.component";
 import { filter } from 'rxjs/operators';
 import { CommonModule } from '@angular/common';
+import {SidenavComponent} from "./sidenav/sidenav.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NavbarComponent, CommonModule],
+  imports: [RouterOutlet, NavbarComponent, SidenavComponent, CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -17,7 +18,7 @@ export class AppComponent {
   title = 'watchstars';
 
   constructor(private router: Router) {}
-  
+
   ngOnInit(): void {
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)

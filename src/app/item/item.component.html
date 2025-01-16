@@ -1,12 +1,45 @@
-<div class="px-[3.4%]">
-  <div *ngIf="errorMessage" class="error-message">
-    {{ errorMessage }}
-  </div>
+<div *ngIf="item" class="w-auto">
+  <div
+    class="item-bg bg-cover bg-center overflow-hidden mr-8 mb-8" style="width: -webkit-fill-available; height: -webkit-fill-available;"
+    [style.background-image]="'url(https://image.tmdb.org/t/p/original/' + item.backdrop_path + ')'"
+  >
+    <div class="p-[3.4%]">
+      <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+      </div>
 
-  <div *ngIf="item">
-    <h1>{{ item.title }}</h1>
-    <p><strong>Release Year:</strong> {{ item.release_year }}</p>
-    <p><strong>Overview:</strong> {{ item.overview }}</p>
-    <img [src]="'https://image.tmdb.org/t/p/w500/' + item.poster_path" alt="{{ item.title }} poster"/>
+      <div class="inline-flex">
+        <img
+          class="w-72 rounded-lg mr-10"
+          [src]="'https://image.tmdb.org/t/p/w500/' + item.poster_path"
+          alt="{{ item.title }} poster"
+        />
+        <div class="flex flex-col text-left">
+          <div class="aspect-auto w-full">
+            <h1 class="h-28 text-2xl mb-2 max-w-72 h-[4.3rem]">
+              <img
+                class="object-contain h-full"
+                *ngIf="item.logo_path; else noLogo"
+                [src]="'https://image.tmdb.org/t/p/original' + item.logo_path"
+                alt="Logo"
+              />
+            </h1>
+          </div>
+          <ng-template #noLogo>
+            <h1>{{ item.title }}</h1>
+          </ng-template>
+          <div class="max-w-[90ch]">
+            <div class="inline-flex gap-1">
+              <p class="mr-3">{{ item.release_year }}</p>
+              <p *ngFor="let genre of item.genres; let last = last">
+                {{ genre }}<span *ngIf="!last">, </span>
+              </p>
+            </div>
+            <p class="font-semibold">{{ item.tagline }}</p>
+            <p>{{ item.overview }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
