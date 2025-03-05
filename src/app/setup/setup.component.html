@@ -1,10 +1,10 @@
-<div class="relative w-full h-screen overflow-hidden -my-8">
+<div class="fixed top-0 left-0 z-40 w-full h-screen overflow-hidden">
     <div class="absolute inset-0 flex transition-transform duration-500" [style.transform]="'translateX(-' + currentStep * 100 + '%)'">
         <div class="w-full px-5 h-screen flex-shrink-0 flex flex-col items-center text-center justify-center bg-mainBg">
             <i class="logo mb-5"></i>
             <h1 class="text-4xl text-white mb-12">Welcome to Watch Stars!</h1>
             <p>This wizard will help guide you through the setup process. Let's start with your preferred language.</p>
-            <div class="mt-16 w-full text-left">                
+            <div class="mt-16 w-full text-left">
                 <form class="mx-auto max-w-2xl">
                     <label for="lang" class="block mb-2 text-sm font-medium text-gray-400">Preferred Language</label>
                     <select id="lang" class="bg-[#1e1e22] border border-[#4a4a52] text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-[#1e1e22] dark:border-[#4a4a52] dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
@@ -14,10 +14,10 @@
                         <option value="FR">France</option>
                         <option value="DE">Germany</option>
                     </select>
-                </form>                
+                </form>
             </div>
         </div>
-  
+
         <div class="w-full px-5 h-screen flex-shrink-0 flex flex-col items-center text-center justify-center bg-altBg">
             <h1 class="text-4xl text-white mb-12">Create your first user!</h1>
             <p>Watch Stars has got a built-in profile system so each user have got their own homepage and recommendations</p>
@@ -41,101 +41,103 @@
                 </form>
             </div>
         </div>
-  
-        <div class="w-full px-5 h-screen flex-shrink-0 flex flex-col items-center text-center justify-center bg-mainBg">
-            <h1 class="text-4xl text-white">Setup Libraries</h1>
-            <section id="setup-library" class="bg-[#121215] text-white p-8 rounded-lg shadow-lg max-w-3xl mx-auto mt-10">
-                <h2 class="text-2xl font-semibold mb-4">Setup Library</h2>
-                <p class="text-gray-400 mb-6">Add your media folders to start organizing your content. Choose the type of content for each folder and let us handle the rest.</p>
-              
-                <div class="mb-6">
-                    <h3 class="text-xl font-medium mb-4">Your Libraries</h3>
-                    <table class="w-full text-sm text-left text-gray-400">
-                      <thead class="bg-[#1e1e22] text-gray-300">
-                        <tr>
-                          <th class="py-2 px-4">Folder</th>
-                          <th class="py-2 px-4">Content Type</th>
-                          <th class="py-2 px-4">Metadata Source</th>
-                          <th class="py-2 px-4">Actions</th>
-                        </tr>
-                      </thead>
-                      <tbody id="library-list" class="bg-[#121215]">
-                        <!-- Example row -->
-                        <tr class="border-b border-gray-700">
-                          <td class="py-2 px-4">/media/movies</td>
-                          <td class="py-2 px-4">Movies</td>
-                          <td class="py-2 px-4">TMDb</td>
-                          <td class="py-2 px-4">
-                            <button
-                              class="text-red-500 hover:underline text-sm"
-                              onclick="removeLibrary(this)"
-                            >
-                              Remove
-                            </button>
-                          </td>
-                        </tr>
-                        
-                      </tbody>
-                    </table>
-                  </div>
 
-                <form id="library-form" class="space-y-4">
-                  <div>
-                    <label for="folder" class="block mb-2 text-sm font-medium text-gray-400">Select Folder</label>
-                    <input
-                      type="text"
-                      id="folder"
-                      class="bg-[#1e1e22] border border-gray-600 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                      placeholder="Enter folder path or browse"
-                      required
-                    />
-                  </div>
-              
-                  <div>
-                    <label for="content-type" class="block mb-2 text-sm font-medium text-gray-400">Content Type</label>
-                    <select
-                      id="content-type"
-                      class="bg-[#1e1e22] border border-gray-600 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                      required
-                    >
-                      <option value="" disabled selected>Select content type</option>
-                      <option value="movies">Movies</option>
-                      <option value="tvshows">TV Shows</option>
-                      <option value="music">Music</option>
-                      <option value="photos">Photos</option>
-                    </select>
-                  </div>
-              
-                  <div>
-                    <label for="metadata" class="block mb-2 text-sm font-medium text-gray-400">Metadata Source</label>
-                    <select
-                      id="metadata"
-                      class="bg-[#1e1e22] border border-gray-600 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                      required
-                    >
-                      <option value="" disabled selected>Choose a metadata source</option>
-                      <option value="themoviedb">The Movie Database (TMDb)</option>
-                      <option value="tvmaze">TV Maze</option>
-                      <option value="gracenote">Gracenote</option>
-                      <option value="manual">Manual</option>
-                    </select>
-                  </div>
-              
-                  <div class="flex justify-between items-center">
-                    <button
-                      type="submit"
-                      class="bg-blue-500 hover:bg-blue-600 text-white font-medium rounded-lg text-sm px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
-                    >
-                      Add Library
-                    </button>
-                  </div>
-                </form>
-              
-              </section>
-              
-        </div>
+      <div class="w-full px-5 h-screen flex-shrink-0 flex flex-col items-center text-center justify-center bg-mainBg">
+        <h1 class="text-4xl text-white">Setup Libraries</h1>
+        <section id="setup-library" class="bg-[#121215] text-white p-8 rounded-lg shadow-lg max-w-3xl mx-auto mt-10">
+          <h2 class="text-2xl font-semibold mb-4">Setup Library</h2>
+          <p class="text-gray-400 mb-6">
+            Add your media folders to start organizing your content. Choose the type of content for each folder and let us handle the rest.
+          </p>
+
+          <div class="mb-6">
+            <h3 class="text-xl font-medium mb-4">Your Libraries</h3>
+            <table class="w-full text-sm text-left text-gray-400">
+              <thead class="bg-[#1e1e22] text-gray-300">
+              <tr>
+                <th class="py-2 px-4">Folder</th>
+                <th class="py-2 px-4">Content Type</th>
+                <th class="py-2 px-4">Metadata Source</th>
+                <th class="py-2 px-4">Actions</th>
+              </tr>
+              </thead>
+              <tbody id="library-list" class="bg-[#121215]">
+              <!-- Example row -->
+              <tr class="border-b border-gray-700">
+                <td class="py-2 px-4">/media/movies</td>
+                <td class="py-2 px-4">Movies</td>
+                <td class="py-2 px-4">TMDb</td>
+                <td class="py-2 px-4">
+                  <button
+                    class="text-red-500 hover:underline text-sm"
+                    onclick="removeLibrary(this)"
+                  >
+                    Remove
+                  </button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <form id="library-form" class="space-y-4">
+            <div>
+              <label for="folder" class="block mb-2 text-sm font-medium text-gray-400">Select Folder</label>
+              <input
+                type="file"
+                id="folder"
+                class="bg-[#1e1e22] border border-gray-600 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                webkitdirectory
+                directory
+                multiple
+                required
+              />
+            </div>
+
+            <div>
+              <label for="content-type" class="block mb-2 text-sm font-medium text-gray-400">Content Type</label>
+              <select
+                id="content-type"
+                class="bg-[#1e1e22] border border-gray-600 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                required
+              >
+                <option value="" disabled selected>Select content type</option>
+                <option value="movies">Movies</option>
+                <option value="tvshows">TV Shows</option>
+                <option value="music">Music</option>
+                <option value="photos">Photos</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="metadata" class="block mb-2 text-sm font-medium text-gray-400">Metadata Source</label>
+              <select
+                id="metadata"
+                class="bg-[#1e1e22] border border-gray-600 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                required
+              >
+                <option value="" disabled selected>Choose a metadata source</option>
+                <option value="themoviedb">The Movie Database (TMDb)</option>
+                <option value="tvmaze">TV Maze</option>
+                <option value="gracenote">Gracenote</option>
+                <option value="manual">Manual</option>
+              </select>
+            </div>
+
+            <div class="flex justify-between items-center">
+              <button
+                type="submit"
+                class="bg-blue-500 hover:bg-blue-600 text-white font-medium rounded-lg text-sm px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+              >
+                Add Library
+              </button>
+            </div>
+          </form>
+        </section>
+      </div>
+
     </div>
-  
+
     <div class="absolute bottom-8 left-8">
         <button class="px-4 py-2 bg-gray-700 text-white rounded hover:bg-gray-800 disabled:opacity-50" (click)="goBack()" [hidden]="currentStep === 0">Back</button>
     </div>
@@ -143,4 +145,3 @@
         <button class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 disabled:opacity-50" (click)="goNext()" [disabled]="currentStep === steps.length - 1">Continue ></button>
     </div>
 </div>
-  

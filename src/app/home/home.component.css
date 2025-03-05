@@ -39,7 +39,7 @@
 /* Add thumbnail images */
 .splide__slide img {
   object-fit: cover;
-  border-radius: 5px;
+  border-radius: 12px;
   margin: auto;
 }
 

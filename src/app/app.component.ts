@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import Splide from '@splidejs/splide';
 import { NavbarComponent } from "./navbar/navbar.component";
@@ -13,8 +13,9 @@ import {SidenavComponent} from "./sidenav/sidenav.component";
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   showNavbar: boolean = true;
+  showSidebar: boolean = true;
   title = 'watchstars';
 
   constructor(private router: Router) {}
@@ -56,7 +57,7 @@ export class AppComponent {
         pagination: false,
         wheel: false,
         direction: 'ltr', // Ensure left to right movement
-        padding: { left: '3.4%', right: '3.4%' },
+        padding: { right: '2rem' },
       }).mount();
 
       console.log(splide); // Check if the splide instance is correctly initialized

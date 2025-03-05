@@ -1,6 +1,6 @@
 <div *ngIf="item" class="w-auto">
   <div
-    class="item-bg bg-cover bg-center overflow-hidden mr-8 mb-8" style="width: -webkit-fill-available; height: -webkit-fill-available;"
+    class="item-bg bg-cover bg-center mr-8 mb-8 overflow-auto" style="width: -webkit-fill-available; height: -webkit-fill-available;"
     [style.background-image]="'url(https://image.tmdb.org/t/p/original/' + item.backdrop_path + ')'"
   >
     <div class="p-[3.4%]">
@@ -8,11 +8,12 @@
         {{ errorMessage }}
       </div>
 
-      <div class="inline-flex">
+      <div class="inline-flex relative z-20">
         <img
           class="w-72 rounded-lg mr-10"
           [src]="'https://image.tmdb.org/t/p/w500/' + item.poster_path"
           alt="{{ item.title }} poster"
+          draggable="false"
         />
         <div class="flex flex-col text-left">
           <div class="aspect-auto w-full">
@@ -22,6 +23,7 @@
                 *ngIf="item.logo_path; else noLogo"
                 [src]="'https://image.tmdb.org/t/p/original' + item.logo_path"
                 alt="Logo"
+                draggable="false"
               />
             </h1>
           </div>
@@ -29,14 +31,24 @@
             <h1>{{ item.title }}</h1>
           </ng-template>
           <div class="max-w-[90ch]">
-            <div class="inline-flex gap-1">
-              <p class="mr-3">{{ item.release_year }}</p>
-              <p *ngFor="let genre of item.genres; let last = last">
-                {{ genre }}<span *ngIf="!last">, </span>
-              </p>
+            <div class="flex flex-col">
+              <div class="inline-flex gap-1 mb-2">
+                <p class="mr-3">{{ item.release_year }}</p>
+                <p *ngFor="let genre of item.genres; let last = last">
+                  {{ genre }}<span *ngIf="!last">, </span>
+                </p>
+              </div>
+
+              <div class="inline-flex mb-2">
+                <button class="rounded-lg py-3 px-8 bg-[#2C2C2C] hover:bg-[#3e3e3e] inline-flex ">
+                  <svg viewBox="-0.5 0 7 7" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#ffffff" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>play [#1003]</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Dribbble-Light-Preview" transform="translate(-347.000000, -3766.000000)" fill="#ffffff"> <g id="icons" transform="translate(56.000000, 160.000000)"> <path d="M296.494737,3608.57322 L292.500752,3606.14219 C291.83208,3605.73542 291,3606.25002 291,3607.06891 L291,3611.93095 C291,3612.7509 291.83208,3613.26444 292.500752,3612.85767 L296.494737,3610.42771 C297.168421,3610.01774 297.168421,3608.98319 296.494737,3608.57322" id="play-[#1003]"> </path> </g> </g> </g> </g></svg>
+                  Play
+                </button>
+              </div>
+
+              <p class="font-semibold">{{ item.tagline }}</p>
+              <p>{{ item.overview }}</p>
             </div>
-            <p class="font-semibold">{{ item.tagline }}</p>
-            <p>{{ item.overview }}</p>
           </div>
         </div>
       </div>

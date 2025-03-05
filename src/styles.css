@@ -36,3 +36,18 @@ select:not([size]) {
   -webkit-print-color-adjust: exact;
   print-color-adjust: exact;
 }
+
+::selection {
+  background: #5050FF;
+  color: #FFFFFF;
+}
+::-moz-selection {
+  background: #5050FF;
+  color: #FFFFFF;
+}
+IMG::selection {
+  background: transparent;
+}
+IMG::-moz-selection {
+  background: transparent;
+}

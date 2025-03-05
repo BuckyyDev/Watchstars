@@ -15,7 +15,7 @@ export class SetupComponent {
   ngOnInit(){
     // If freshInstall is set to false, then redirect traffic to the main page
     // As we don't need to do the setup again
-    if (!config.freshInstall) {      
+    if (!config.freshInstall) {
       this.router.navigate(['/']);
     }
   }
